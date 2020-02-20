@@ -2,7 +2,7 @@
 
 The simple game written on Python/pygame.
 
-## Contacts:
+## Contacts
 
 Our [discord](https://discord.gg/SwWweGb)!
 
