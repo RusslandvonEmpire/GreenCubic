@@ -16,8 +16,8 @@ AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 DefaultDirName=C:\Games\{#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile=D:\Projects\Python\GreenCubic\greencubic_compiled\LICENSE
-InfoBeforeFile=D:\Projects\Python\GreenCubic\greencubic_compiled\WhatsNew.txt
+LicenseFile=D:\Projects\Python\GreenCubic\greencubic\LICENSE
+InfoBeforeFile=D:\Projects\Python\GreenCubic\greencubic\WhatsNew.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=D:\Projects\Python\GreenCubic
@@ -35,8 +35,8 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\Projects\Python\GreenCubic\greencubic_compiled\GreenCubic.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:Projects\Python\GreenCubic\greencubic_compiled\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\Projects\Python\GreenCubic\greencubic\GreenCubic.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:Projects\Python\GreenCubic\greencubic\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
