@@ -16,7 +16,7 @@ AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 DefaultDirName=C:\Games\{#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile=D:\Projects\Python\GreenCubic\greencubic\LICENSE
+LicenseFile=D:\Projects\Python\GreenCubic\LICENSE
 InfoBeforeFile=D:\Projects\Python\GreenCubic\greencubic\WhatsNew.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
