@@ -118,5 +118,85 @@
             "beach":"Пляж"
             }
         }
+    },
+"polish":
+    {
+    "menuText":
+        {
+        "play":"Grać",
+        "settings":"Ustawienia",
+        "exit":"Wyjść",
+        "pause":"Pauza",
+        "exitToMenu":"Wyjdź z menu",
+        "resume":"Kontynuuj",
+        "restart":"Na nowo",
+        "dayNightCycle":"Cykl Dzień/Noc",
+        "dayNight":"Dzień/Noc",
+        "language":"Język",
+        "youDied":"Umarłeś!"
+        },
+    "discordStatus":
+        {
+        "location":"Lokalizacja: ",
+        "health":"Z: ",
+        "food":" J: ",
+        "water":" W: ",
+        "energy":" E: ",
+        "died":"Umarł",
+        "mainMenu":"Menu główne",
+        "languageSettings":"Ustawienia językowe",
+        "locations":
+            {
+            "basement":"Piwnica",
+            "home":"Dom",
+            "yard":"Stocznia",
+            "village":"Wioska",
+            "garden":"Ogród",
+            "field":"Pole",
+            "forest":"Las",
+            "city":"Miasto",
+            "beach":"Plaża"
+            }
+        }
+    },
+"deutch":
+    {
+    "menuText":
+        {
+        "play":"Zu spielen",
+        "settings":"Einstellungen",
+        "exit":"Geh raus",
+        "pause":"Pause",
+        "exitToMenu":"Gehe zum Menü",
+        "resume":"Weiter",
+        "restart":"Neustart",
+        "dayNightCycle":"Tag/Nacht Zyklus",
+        "dayNight":"Tag/Nacht",
+        "language":"Sprache",
+        "youDied":"Du bist tot!"
+        },
+    "discordStatus":
+        {
+        "location":"Lage: ",
+        "health":"G: ",
+        "food":" E: ",
+        "water":" W: ",
+        "energy":" E: ",
+        "died":"Gestorben",
+        "mainMenu":"Hauptmenü",
+        "languageSettings":"Spracheinstellungen",
+        "locations":
+            {
+            "basement":"Keller",
+            "home":"Haus",
+            "yard":"Der Hof",
+            "village":"Das dorf",
+            "garden":"Gemüsegarten",
+            "field":"Das Feld",
+            "forest":"Der wald",
+            "city":"Die Stadt",
+            "beach":"Der strand"
+            }
+        }
     }
 }

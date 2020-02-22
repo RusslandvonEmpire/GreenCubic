@@ -1,6 +1,6 @@
 ﻿############ENGLISH######################################
 
-GreenCubic 1.5.4
+GreenCubic 1.5.5
 
 Control:
 Arrows.
@@ -36,7 +36,7 @@ Added new languages and a menu of languages
 
 ###############РУССКИЙ####################################
 
-GreenCubic 1.5.4
+GreenCubic 1.5.5
 
 Управление:
 Стрелки.
