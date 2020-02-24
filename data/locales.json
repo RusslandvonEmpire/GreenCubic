@@ -1,3 +1,6 @@
+// To change the language to Latin or Old Slavonic, specify in settings.ini in the line language latin or old_slavic.
+// Чтобы изменить язык на латинский или старославянский укажите в settings.ini в строке language latin или old_slavic.
+
 {
 "english":
     {
@@ -119,6 +122,46 @@
             }
         }
     },
+"deutch":
+    {
+    "menuText":
+        {
+        "play":"Zu spielen",
+        "settings":"Einstellungen",
+        "exit":"Geh raus",
+        "pause":"Pause",
+        "exitToMenu":"Gehe zum Menü",
+        "resume":"Weiter",
+        "restart":"Neustart",
+        "dayNightCycle":"Tag/Nacht Zyklus",
+        "dayNight":"Tag/Nacht",
+        "language":"Sprache",
+        "youDied":"Du bist tot!"
+        },
+    "discordStatus":
+        {
+        "location":"Lage: ",
+        "health":"G: ",
+        "food":" E: ",
+        "water":" W: ",
+        "energy":" E: ",
+        "died":"Gestorben",
+        "mainMenu":"Hauptmenü",
+        "languageSettings":"Spracheinstellungen",
+        "locations":
+            {
+            "basement":"Keller",
+            "home":"Haus",
+            "yard":"Der Hof",
+            "village":"Das dorf",
+            "garden":"Gemüsegarten",
+            "field":"Das Feld",
+            "forest":"Der wald",
+            "city":"Die Stadt",
+            "beach":"Der strand"
+            }
+        }
+    },
 "polish":
     {
     "menuText":
@@ -159,43 +202,83 @@
             }
         }
     },
-"deutch":
+"latin":
     {
     "menuText":
         {
-        "play":"Zu spielen",
-        "settings":"Einstellungen",
-        "exit":"Geh raus",
+        "play":"Play",
+        "settings":"Occasus",
+        "exit":"Exitus",
         "pause":"Pause",
-        "exitToMenu":"Gehe zum Menü",
-        "resume":"Weiter",
-        "restart":"Neustart",
-        "dayNightCycle":"Tag/Nacht Zyklus",
-        "dayNight":"Tag/Nacht",
-        "language":"Sprache",
-        "youDied":"Du bist tot!"
+        "exitToMenu":"Exit Ad Menu",
+        "resume":"Proin",
+        "restart":"Sileo",
+        "dayNightCycle":"Die/Noctis, Cursus",
+        "dayNight":"Die/Noctis",
+        "language":"Lingua",
+        "youDied":"Te mortuus est"
         },
     "discordStatus":
         {
-        "location":"Lage: ",
-        "health":"G: ",
-        "food":" E: ",
-        "water":" W: ",
-        "energy":" E: ",
-        "died":"Gestorben",
-        "mainMenu":"Hauptmenü",
-        "languageSettings":"Spracheinstellungen",
+        "location":"Locus: ",
+        "health":"S: ",
+        "food":" C: ",
+        "water":" A: ",
+        "energy":" V: ",
+        "died":"Mortuus est",
+        "mainMenu":"Main menu",
+        "languageSettings":"Lingua occasus",
         "locations":
             {
-            "basement":"Keller",
-            "home":"Haus",
-            "yard":"Der Hof",
-            "village":"Das dorf",
-            "garden":"Gemüsegarten",
-            "field":"Das Feld",
-            "forest":"Der wald",
-            "city":"Die Stadt",
-            "beach":"Der strand"
+            "basement":"Fundamentum",
+            "home":"Domum",
+            "yard":"Antenna",
+            "village":"Castellum",
+            "garden":"Hortus",
+            "field":"Agro",
+            "forest":"Silva",
+            "city":"Urbem",
+            "beach":"Beach"
+            }
+        }
+    },
+"old_slavic":
+	{
+    "menuText":
+        {
+        "play":"Играть",
+        "settings":"Настроикы",
+        "exit":"Выити",
+        "pause":"Паоза",
+        "exitToMenu":"Выити въ меню",
+        "resume":"Продолжить",
+        "restart":"Прэзапоустить",
+        "dayNightCycle":"Циклъ День/Ночь",
+        "dayNight":"День/Ночь",
+        "language":"Озыкъ",
+        "youDied":"Ты ооумеръ!"
+        },
+    "discordStatus":
+        {
+        "location":"Локацїа: ",
+        "health":"З: ",
+        "food":" ѥ: ",
+        "water":" В: ",
+        "energy":"ѥ: ",
+        "died":"Ооумеръ",
+        "mainMenu":"Главноѥ меню",
+        "languageSettings":"Настроикꙑ ѩꙁꙑка",
+        "locations":
+            {
+            "basement":"Пѫдвалъ",
+            "home":"Домъ",
+            "yard":"Дворъ",
+            "village":"Дрѣвнѧ",
+            "garden":"ѻградъ",
+            "field":"Поле",
+            "forest":"Лѣсъ",
+            "city":"Градъ",
+            "beach":"Плѧжъ"
             }
         }
     }
