@@ -3,30 +3,39 @@ from time import time
 from pypresence import Presence, Activity
 from configparser import ConfigParser
 from json import load as JSONload
+
 # Setting up window
 pygame.init()
 window = pygame.display.set_mode((1000,500))
 pygame.display.set_caption("GreenCubic")
 icon = pygame.image.load('data/icon.ico')
 pygame.display.set_icon(icon)
+
 # Drawing loading screen
 window.fill((255,255,255))
+
 arial100 = pygame.font.Font('data/fonts/arial.ttf',100)
 arial80 = pygame.font.Font('data/fonts/arial.ttf',80)
+
 GreenCubicText = arial100.render("GreenCubic",1,(0,0,0))
 loadingText = arial80.render("Loading...",1,(0,0,0))
+
 window.blit(GreenCubicText,(175,100))
 window.blit(loadingText,(300,300))
+
 pygame.draw.rect(window,(0,255,0),(725,120,75,75))
 pygame.display.update()
+
 # Loading settings
 settings = ConfigParser()
 settings.read('settings.ini')
+
 # Setting up Rich Presence
 discordConnect = settings.getboolean('DEFAULT','discordrpc')
 startTime = int(time())
 clientID = '603692122704707594'
 RPC = Presence(clientID)
+
 if discordConnect:
     try:
         RPC.connect()
@@ -34,30 +43,39 @@ if discordConnect:
     except:
         discordConnect = False
         print("Discord not found. Rich Presence is not activated.")
-# Тут переменные, связанные с кубиком. 
+	
+# Some variables
 x = settings.getint('EXPERIMENTAL','startx')
 y = settings.getint('EXPERIMENTAL','starty')
+
 width = settings.getint('EXPERIMENTAL','cubewidth')
 height = settings.getint('EXPERIMENTAL','cubeheight')
+
 speed = settings.getint('EXPERIMENTAL','cubespeed')
 speedY = 0
+
 facing = 1
+
 Jump = False
 canRun = True
+
 health = 100
 food = 100
 water = 100
 energy = 100
-# Другие переменные
+
 inMenu = True
-# Загружаем шрифты
+
+# Load fonts
 verdana40 = pygame.font.Font('data/fonts/verdana.ttf',40)
 verdana30 = pygame.font.Font('data/fonts/verdana.ttf',30)
 verdana100 = pygame.font.Font('data/fonts/verdana.ttf',100)
+
 with open('data/locales.json', 'r', encoding='utf-8') as f: # Loading languages
     locale = JSONload(f)
 language = settings.get('DEFAULT','language') # Getting language
-# Rendering texts
+
+# Prerender text
 playText = verdana40.render(locale[language]['menuText']['play'],1,(0,0,0))
 settingsText = verdana40.render(locale[language]['menuText']['settings'],1,(0,0,0))
 exitText = verdana40.render(locale[language]['menuText']['exit'],1,(0,0,0))
@@ -77,6 +95,7 @@ russianText = verdana40.render("Русский",1,(0,0,0))
 ukrainianText = verdana40.render("Українська",1,(0,0,0))
 polishText = verdana40.render("Polski",1,(0,0,0))
 deutchText = verdana40.render("Deutsch",1,(0,0,0))
+
 # Texts for discord status
 pauseStatus = locale[language]['menuText']['pause']
 settingsStatus = locale[language]['menuText']['settings']
@@ -88,6 +107,7 @@ foodStatus = locale[language]['discordStatus']['food']
 healthStatus = locale[language]['discordStatus']['health']
 waterStatus = locale[language]['discordStatus']['water']
 energyStatus = locale[language]['discordStatus']['energy']
+
 # Loading bar icons
 print("Loading bar icons")
 baricon = (
@@ -111,24 +131,29 @@ scene = (
     pygame.image.load('data/backgrounds/beach.png')
 )
 stars = pygame.image.load('data/backgrounds/stars.png') # Star sky
+
 # Menu icons
 settingsIcon = pygame.image.load('data/menuIcons/settings.png')
 exitIcon = pygame.image.load('data/menuIcons/exit.png')
 mainMenuIcon = pygame.image.load('data/menuIcons/mainMenu.png')
 restartIcon = pygame.image.load('data/menuIcons/restart.png')
 languageIcon = pygame.image.load('data/menuIcons/language.png')
+
 # Cubic faces in menu
 sleepingMenuFace = pygame.image.load('data/menuFaces/sleeping.png')
 diedMenuFace = pygame.image.load('data/menuFaces/died.png')
+
 # Countries flags
 UKflag = pygame.image.load('data/flags/UK.png')
 russiaFlag = pygame.image.load('data/flags/russia.png')
 ukraineFlag = pygame.image.load('data/flags/ukraine.png')
 polandFlag = pygame.image.load('data/flags/poland.png')
 germanyFlag = pygame.image.load('data/flags/germany.png')
+
 # Other sprites
 wrenchMenuIcon = pygame.image.load('data/menuIcons/wrenchIcon.png')
 zzz = pygame.image.load('data/zzz.png')
+
 # Scenes names for Rich Presence.
 scenename = (
     locale[language]['discordStatus']['locations']['basement'],
@@ -145,9 +170,11 @@ scenename = (
 scenenum = settings.getint('EXPERIMENTAL','startscene') # Number of current scene
 scenecount = len(scene) - 1 # Scenes count
 run = True
+
 # Classes
 class Bar: 
     '''Class for bars'''
+
     def __init__(self, x,y, red,green,blue, height, value, multiplier, iconnum):
         self.x = 25
         self.y = y
@@ -158,18 +185,23 @@ class Bar:
         self.value = value
         self.multiplier = multiplier
         self.iconnum = iconnum
+	
     def draw(self):
         if self.value > 0:
             pygame.draw.rect(window,(self.red,self.green,self.blue),(self.x,self.y, self.value * self.multiplier, self.height))
         window.blit(baricon[self.iconnum], (self.x - 22, self.y))
+	
     def update(self, value):
         self.value = value
+	
 class DayNight:
     '''Class for day and night'''
+
     def __init__(self):
         self.cycle = settings.getboolean('TIME','cycle')
         self.cp = settings.getint('TIME','time')
         self.raising = False
+	
     def tick(self):
         '''One time tick'''
         if self.cycle:
@@ -183,18 +215,23 @@ class DayNight:
                   self.cp -= 0.06
                 else:
                     self.raising = True
+		
     def draw(self):
         '''Drawing sky'''
         window.fill((0,self.cp / 1.5,self.cp))
         if self.cp < 50:
             window.blit(stars,(0,0))
+	
 class Menu:
     '''Class for menus'''
+
     def __init__(self):
         self.menuType = "MAIN"
+	
     def draw(self):
-        '''Рисуем меню'''
+        '''Menu draw'''
         global mouseX,mouseY
+	
         if self.menuType == "MAIN": # Drawing main menu
             window.fill((0,170,255))
             window.blit(scene[1],(0,0))
@@ -222,6 +259,7 @@ class Menu:
             window.blit(exitIcon,(710,360))
             window.blit(GreenCubicText,(175,20))
             pygame.draw.rect(window,(0,255,0),(720,40,70,70))
+		
         elif self.menuType == "PAUSE": # Drawing pause menu
             DN.draw()
             window.blit(scene[scenenum],(0,0))
@@ -258,6 +296,7 @@ class Menu:
             window.blit(restartIcon,(610,235))
             window.blit(mainMenuIcon,(610,310))
             window.blit(exitIcon,(610,385))
+		
         elif self.menuType == "DIED": # "You died!" Menu
             DN.draw()
             window.blit(scene[scenenum],(0,0))
@@ -282,6 +321,7 @@ class Menu:
             window.blit(exitToMenuText,(360,255))
             pygame.draw.rect(window,(0,255,0),(710,160,30,30))
             window.blit(mainMenuIcon,(710,260))
+		
         elif self.menuType == "SETTINGS": # Settings menu
             window.fill((0,170,255))
             window.blit(scene[1],(0,0))
@@ -332,6 +372,7 @@ class Menu:
             window.blit(exitToMenuText,(40,425))
             window.blit(mainMenuIcon,(290,430))
             window.blit(languageIcon,(930,430))
+	
         elif self.menuType == "LANGUAGE": # Language choose menu
             window.fill((0,170,255))
             window.blit(scene[1],(0,0))
@@ -409,14 +450,16 @@ class Cubic():
     def AIrender(self):
         pass
 """
-# Обьекты
+
+# Objects
 healthBar = Bar(25,10, 255,0,0, 20, health, 3, 0)
 foodBar = Bar(25,40, 255,127,0, 20, food, 3, 1)
 waterBar = Bar(25, 70, 0,150,220, 20, water, 3, 2)
 energyBar = Bar(25, 100, 255,255,0, 20, energy, 3, 3)
 DN = DayNight()
 menu = Menu()
-# Функции
+
+# Functions
 def restartGame():
     '''Function for game restarting'''
     # Variables for cubic 
@@ -440,6 +483,7 @@ def restartGame():
     # Some functions
     DN.__init__()
     print("Game reloaded!")
+	
 def reloadLocale():
     "Function for reloading language"
     global playText,settingsText,exitText,pauseText,exitToMenuText,resumeText,restartText,youDiedText,settingsText,settingsText2,dayNightCycleText,dayNightText,languageText,languageText2,pauseStatus,settingsStatus,diedStatus,mainMenuStatus,languageSettingsStatus,locationStatus,foodStatus,waterStatus,healthStatus,energyStatus,scenename
@@ -482,12 +526,14 @@ def reloadLocale():
         locale[language]['discordStatus']['locations']['city'],
         locale[language]['discordStatus']['locations']['beach']
     )
+	
 def onLadder():
     '''Is player on ladder?'''
     if scenenum == 0 and x > 835 and x < 935 and y < 450: # Ladder in basement
         return True
     else:
         return False
+
 def drawWindow():
     '''Function for drawing everything in window'''
     if (scenenum <= scenecount and scenenum >= 0):
@@ -501,6 +547,7 @@ def drawWindow():
     energyBar.draw()
     pygame.draw.rect(window, (0,255,0), (x, y, width, height)) 
     pygame.display.update()
+	
 # General game cycle
 print("Game Started!")
 while run:
@@ -695,6 +742,7 @@ while run:
     if keys[pygame.K_e]: # Eat (from nothing yet)
         if food < 100:
             food += 1
+	
     # Player options
     if food > 0 and water > 0: # Wasting water and food in idling
         food -= 0.002
@@ -719,6 +767,7 @@ while run:
     
     if energy > 0: # You can sprint, if you have energy
         canRun = True
+	
     # Physics
     y += speedY
     if scenenum == 0 or scenenum == 1: # Ceiling
@@ -766,6 +815,7 @@ while run:
             y = 500 - height
         speedY = 0
         Jump = False
+	
     # Changing normal location
     if scenenum >= 2 and scenenum < scenecount and x > 999 - width:
         x = 1
@@ -773,6 +823,7 @@ while run:
     if scenenum > 2 and scenenum <= scenecount and x < 1:
         x = 999 - width
         scenenum -= 1
+	
     # Changing special location
     if scenenum == 1 and x > 999 - width and y > 200: # Go out
         x = 1
@@ -788,6 +839,7 @@ while run:
         y = 450
         x = 50
         scenenum = 1
+	
     # Rich Presence
     if discordConnect:
 	    RPC.update(
@@ -797,10 +849,11 @@ while run:
         state=healthStatus + str(int(health)) + foodStatus + str(int(food)) + waterStatus + str(int(water)) + energyStatus + str(int(energy)),
         details=locationStatus + scenename[scenenum]
 	    )
-    # Functions
+	
     drawWindow()
     DN.tick()
-# Going out from cycle.
+	
+# Bye.
 print("Game Stopped!")
 RPC.close()
 pygame.quit()
