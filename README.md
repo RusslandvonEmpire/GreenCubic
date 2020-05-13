@@ -47,3 +47,11 @@ I don't know the way to make binary from python file in other platforms, but I t
 2. Install modules by command `pip install pygame pypresence pyinstaller`
 
 3. Run file GreenCubic.py and play.
+
+#### Fedora
+
+1. Python by command `sudo dnf install python3` if you haven't it.
+
+2. Install modules by command `pip install pygame pypresence pyinstaller`
+
+3. Run file GreenCubic.py and play.
